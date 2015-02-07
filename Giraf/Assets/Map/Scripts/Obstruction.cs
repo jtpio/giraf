@@ -10,14 +10,13 @@ public class Obstruction : MonoBehaviour {
 	private bool hidden = false;
 	private string mineName = "Mine";
 	private string sphereName = "Sphere001";
-	private ExplodeParticle particle;
 	private ObstructionState state = ObstructionState.Falling;
 
 	public float totalLifeTime = 5;
    
 	public AreaDescriptor areaMapper;
-	public Transform explosionParticle;
-	public ObstructionFallDown fallDown;
+	public ExplodeParticle explosionParticle;
+	private ObstructionFallDown fallDown;
 
 	void Start () {
 		this.startingPosition = this.areaMapper.gameObject.transform.position;
@@ -49,8 +48,9 @@ public class Obstruction : MonoBehaviour {
 			}
 
 			case ObstructionState.Exploding : {
-				this.explosionParticle = Instantiate(this.explosionParticle) as Transform;
-				explosionParticle.position = (transform.Find(this.mineName)).position;
+				this.explosionParticle = Instantiate(this.explosionParticle) as ExplodeParticle;
+				this.explosionParticle.transform.position = (transform.Find(this.mineName)).position;
+				this.explosionParticle.PlaySound();
 			    this.state = ObstructionState.Dying;
 
 				break;
