@@ -10,7 +10,7 @@ public class DeathDetector : MonoBehaviour {
 
 	void Start () {
 		sources = GetComponents<AudioSource>();
-		deathSound = sources[1];
+		deathSound = sources[0];
 	}
 	
 	void Update () {
