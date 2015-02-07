@@ -25,14 +25,7 @@ public class Obstruction : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		this.currentLifeTime += Time.deltaTime;
-		this.UpdateState();
 		this.RenderState();
-	}
-
-	private void UpdateState () {
-		if (this.currentLifeTime + 0.2 >= this.totalLifeTime && this.state == ObstructionState.Falling) {
-			this.state = ObstructionState.Exploding;
-		}
 	}
 
 	private bool RenderState () {
@@ -40,6 +33,10 @@ public class Obstruction : MonoBehaviour {
 			case ObstructionState.Falling : {	
 				this.fallDown = this.gameObject.GetComponent<ObstructionFallDown>();
 				this.fallDown.startingPosition = this.startingPosition;
+
+				if (this.currentLifeTime + 0.2 >= this.totalLifeTime) {
+					this.state = ObstructionState.Exploding;
+				}
 				break;
 			}
 
