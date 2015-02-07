@@ -6,11 +6,6 @@ public class KeyListener : MonoBehaviour {
 	
 	public Transform cube;
 
-	// Use this for initialization
-	void Start () {
-
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		foreach (char c in Input.inputString) {
@@ -25,8 +20,11 @@ public class KeyListener : MonoBehaviour {
 
 			if (areaMapper.hasObstruction == false) {
 				var bomb = Instantiate(cube) as Transform;
-				bomb.position = area.transform.position;
 
+				var obstruction = bomb.GetComponent<Obstruction>();
+				obstruction.areaMapper = areaMapper;
+
+				bomb.position = area.transform.position;
 				areaMapper.hasObstruction = true;
 			}
 		}

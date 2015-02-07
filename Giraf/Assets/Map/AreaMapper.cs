@@ -4,14 +4,4 @@ using System.Collections;
 public class AreaMapper : MonoBehaviour {
 
 	public bool hasObstruction = false;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
