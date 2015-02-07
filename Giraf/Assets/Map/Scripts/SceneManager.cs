@@ -14,8 +14,9 @@ public class SceneManager : MonoBehaviour {
 	private void OnKeyPress(char c) {
 		var area = GameObject.Find(c.ToString().ToUpper());
 		if (area != null) {
+
 			var areaMapper = area.GetComponent<AreaDescriptor>();
-			
+
 			if (!areaMapper.hasObstruction) {
 				var bomb = Instantiate(obstruction) as Transform;
 				var obstructionScript = bomb.GetComponent<Obstruction>();

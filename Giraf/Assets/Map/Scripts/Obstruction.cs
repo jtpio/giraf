@@ -44,12 +44,12 @@ public class Obstruction : MonoBehaviour {
 	private bool RenderState () {
 		switch (this.state) {
 			case ObstructionState.Falling : {		
-				if (this.currentOffsetY > 0.0f) {
+				if (this.currentOffsetY > 10.0f) {
 					this.currentOffsetY -= Time.deltaTime * 100.0f;
 					
 					this.UpdatePosition();
-				} else if (this.currentOffsetY < 0.0f) {
-					this.currentOffsetY = 0.0f;
+				} else if (this.currentOffsetY < 10.0f) {
+					this.currentOffsetY = 10.0f;
 					this.UpdatePosition();
 				}
 
@@ -57,7 +57,6 @@ public class Obstruction : MonoBehaviour {
 			}
 
 			case ObstructionState.Exploding : {
-			print ("Exploding");
 				this.explosionParticle = Instantiate(this.explosionParticle) as Transform;
 				explosionParticle.position = (transform.Find(this.mineName)).position;
 
