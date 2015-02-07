@@ -14,16 +14,15 @@ public class Obstruction : MonoBehaviour {
 	private ObstructionState state = ObstructionState.Falling;
 
 	public float totalLifeTime = 5;
-    public float startingOffsetY = 600.0f;
+   
 	public AreaDescriptor areaMapper;
 	public Transform explosionParticle;
+	public ObstructionFallDown fallDown;
 
 	void Start () {
-        this.startingPosition = this.areaMapper.gameObject.transform.position;
-        this.currentOffsetY = this.startingOffsetY;
-        this.UpdatePosition();
+		this.startingPosition = this.areaMapper.gameObject.transform.position;
 	}
-
+	
 	// Update is called once per frame
 	void Update () {
 		this.currentLifeTime += Time.deltaTime;
@@ -43,16 +42,9 @@ public class Obstruction : MonoBehaviour {
 
 	private bool RenderState () {
 		switch (this.state) {
-			case ObstructionState.Falling : {		
-				if (this.currentOffsetY > 10.0f) {
-					this.currentOffsetY -= Time.deltaTime * 100.0f;
-					
-					this.UpdatePosition();
-				} else if (this.currentOffsetY < 10.0f) {
-					this.currentOffsetY = 10.0f;
-					this.UpdatePosition();
-				}
-
+			case ObstructionState.Falling : {	
+				this.fallDown = this.gameObject.GetComponent<ObstructionFallDown>();
+				this.fallDown.startingPosition = this.startingPosition;
 				break;
 			}
 
@@ -91,11 +83,4 @@ public class Obstruction : MonoBehaviour {
 
 		return true;
 	}
-
-    void UpdatePosition() {
-        this.gameObject.transform.position = new Vector3(
-            this.startingPosition.x,
-            this.startingPosition.y + currentOffsetY, 
-            this.startingPosition.z);
-    }
 }
