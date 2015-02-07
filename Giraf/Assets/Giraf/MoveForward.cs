@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class MoveForward : MonoBehaviour {
-	
+
+	public float forwardSpeed;
 	public float turnSpeed;
 	public float tiltSpeed;
 	public float tiltAngleRange;
@@ -37,7 +38,7 @@ public class MoveForward : MonoBehaviour {
 		//neck.rotation = Quaternion.AngleAxis(tiltX, transform.forward) * transform.rotation;
 		if (neck.eulerAngles.x >= minTiltAngle && neck.eulerAngles.x <= maxTiltAngle) {
 			neck.Rotate(tiltX, 0.0f, 0.0f);
-		} else {
+		} else if (tiltAngleRange < 360) {
 			neck.eulerAngles = new Vector3(Mathf.Clamp(currentEuler.x, minTiltAngle, maxTiltAngle), currentEuler.y, currentEuler.z);
 		}
 	
@@ -49,7 +50,7 @@ public class MoveForward : MonoBehaviour {
 		Debug.DrawLine(neck.position, neck.position - neck.right, Color.red);
 
 		transform.rotation *= Quaternion.AngleAxis(turn, Vector3.up);
-		controller.Move(transform.forward * Time.deltaTime);
+		controller.Move(transform.forward * Time.deltaTime * forwardSpeed);
 	}
 
 }
