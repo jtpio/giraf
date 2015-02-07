@@ -8,13 +8,16 @@ public class MoveForward : MonoBehaviour {
 	public float tiltSpeed;
 	public float tiltAngleRange;
 
+	CharacterController controller;
 	float minTiltAngle, maxTiltAngle;
 	Transform neck;
 
 	void Start () {
-		neck = transform.Find("Giraf/Giraf_neck");
+		//neck = transform.Find("Giraf/Giraf_neck");
+		neck = GameObject.Find("Giraf_neck").transform;
 		minTiltAngle = neck.eulerAngles.x - tiltAngleRange / 2;
 		maxTiltAngle = neck.eulerAngles.x + tiltAngleRange / 2;
+		controller = GetComponent<CharacterController>();
 	}
 	
 	void Update () {
@@ -34,7 +37,7 @@ public class MoveForward : MonoBehaviour {
 		//float tiltY = rawRightAxisY * Time.deltaTime * tiltSpeed;
 		
 		transform.rotation *= Quaternion.AngleAxis(turn, Vector3.up);
-		transform.position += transform.forward * Time.deltaTime * forwardSpeed;
+		controller.Move(transform.forward * Time.deltaTime * forwardSpeed);
 
 		if (neck == null) return;
 
