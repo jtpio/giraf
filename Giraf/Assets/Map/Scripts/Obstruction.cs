@@ -5,7 +5,6 @@ using System.Linq;
 public class Obstruction : MonoBehaviour {
 
 	private float currentLifeTime = 0.0f;
-    private Vector3 startingPosition;
     private float currentOffsetY;
 	private string mineName = "Mine";
 	private string sphereName = "Sphere001";
@@ -16,10 +15,6 @@ public class Obstruction : MonoBehaviour {
 	public AreaDescriptor areaMapper;
 	public ExplodeParticle explosionParticle;
 	private ObstructionFallDown fallDown;
-
-	void Start () {
-		this.startingPosition = this.areaMapper.gameObject.transform.position;
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -27,11 +22,11 @@ public class Obstruction : MonoBehaviour {
 		this.RenderState();
 	}
 
-	private bool RenderState () {
+	private void RenderState () {
 		switch (this.state) {
 			case ObstructionState.Falling : {	
 				this.fallDown = this.gameObject.GetComponent<ObstructionFallDown>();
-				this.fallDown.startingPosition = this.startingPosition;
+				this.fallDown.startingPosition = this.areaMapper.gameObject.transform.position;
 
 				if (this.currentLifeTime + 0.2 >= this.totalLifeTime) {
 					this.state = ObstructionState.Exploding;
@@ -64,10 +59,8 @@ public class Obstruction : MonoBehaviour {
 			}
 
 			default:  {
-				return false;
+				break;
 			}
 		}
-
-		return true;
 	}
 }
