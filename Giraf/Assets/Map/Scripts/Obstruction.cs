@@ -27,12 +27,11 @@ public class Obstruction : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		this.currentLifeTime += Time.deltaTime;
-		print (this.currentLifeTime);
-		this.SetState();
+		this.UpdateState();
 		this.RenderState();
 	}
 
-	private void SetState () {
+	private void UpdateState () {
 		if (this.currentLifeTime + 0.2 >= this.totalLifeTime && this.state == ObstructionState.Falling) {
 			this.state = ObstructionState.Exploding;
 		}
