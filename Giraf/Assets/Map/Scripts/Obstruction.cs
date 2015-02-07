@@ -9,6 +9,10 @@ public class Obstruction : MonoBehaviour {
 
 	public AreaMapper areaMapper;
 
+	void Start () {
+		this.gameObject.transform.position = this.areaMapper.gameObject.transform.position;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		this.currentLifeTime += Time.deltaTime;
