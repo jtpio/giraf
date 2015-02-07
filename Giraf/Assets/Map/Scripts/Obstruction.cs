@@ -8,6 +8,7 @@ public class Obstruction : MonoBehaviour {
     private Vector3 startingPosition;
     private float currentOffsetY;
 	private bool explode = false;
+	private bool hidden = false;
 	private string mineName = "Mine";
 	private string sphereName = "Sphere001";
 
@@ -28,16 +29,20 @@ public class Obstruction : MonoBehaviour {
 	void Update () {
 		this.currentLifeTime += Time.deltaTime;
 		print (this.currentLifeTime);
-		
+
+		if (this.currentLifeTime + 0.2 >= this.totalLifeTime && !this.explode) {
+			this.explode = true;
+
+			var explosionParticle = Instantiate(this.explosionParticle) as Transform;
+			explosionParticle.position = (transform.Find(this.mineName)).position;
+			this.audio.Play ();
+		}
+
         if(this.currentLifeTime >= this.totalLifeTime) {
 			this.areaMapper.hasObstruction = false;
 
-			if (!this.explode) {
-				var explosionParticle = Instantiate(this.explosionParticle) as Transform;
-				explosionParticle.position = (transform.Find(this.mineName)).position;
-
-				this.explode = true;
-				this.audio.Play ();
+			if (!this.hidden) {
+				this.hidden = true;
 				(transform.Find(this.mineName) as Transform).GetComponent<MeshRenderer>().enabled = false;
 				(transform.Find(this.sphereName) as Transform).GetComponent<MeshRenderer>().enabled = false;
 
