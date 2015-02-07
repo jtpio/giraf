@@ -5,7 +5,6 @@ using System.Linq;
 public class Obstruction : MonoBehaviour {
 
 	private float currentLifeTime;
-    private float currentOffsetY;
 	private string mineName = "Mine";
 	private ObstructionState state;
 
