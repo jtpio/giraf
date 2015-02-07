@@ -8,6 +8,7 @@ public class ObstructionFallDown : MonoBehaviour {
 
 	public float startingOffsetY = 200.0f;
 	public float finallOffsetY = 10.0f;
+	public float animationSpeed = 100.0f;
 
 	void Start () {
 		this.currentOffsetY = this.startingOffsetY;
@@ -16,7 +17,7 @@ public class ObstructionFallDown : MonoBehaviour {
 	
 	void Update () {
 		if (this.currentOffsetY > this.finallOffsetY) {
-			this.currentOffsetY -= Time.deltaTime * 100.0f;
+			this.currentOffsetY -= Time.deltaTime * this.animationSpeed;
 			
 			this.UpdatePosition();
 		} else if (this.currentOffsetY < this.finallOffsetY) {
