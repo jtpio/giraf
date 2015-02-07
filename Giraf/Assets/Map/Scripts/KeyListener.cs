@@ -2,32 +2,14 @@
 using System.Collections;
 using System.Linq;
 
-public class KeyListener : MonoBehaviour {
+public class KeyListener: MonoBehaviour {
 
-	public Transform obstruction;
+	public delegate void OnKeyPress(char c);
 
-	void Start () {
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
+	// attach event to a key press
+	public static void AttachKeyPressEvent (OnKeyPress onKeyPress) {
 		foreach (char c in Input.inputString) {
-			this.OnKeyPress(c);
-		}
-	}
-
-	private void OnKeyPress(char c) {
-		var area = GameObject.Find(c.ToString().ToUpper());
-		if (area != null) {
-			var areaMapper = area.GetComponent<AreaDescriptor>();
-			
-			if (!areaMapper.hasObstruction) {
-				var bomb = Instantiate(obstruction) as Transform;
-				var obstructionScript = bomb.GetComponent<Obstruction>();
-				obstructionScript.areaMapper = areaMapper;
-				areaMapper.hasObstruction = true;
-			}
+			onKeyPress(c);
 		}
 	}
 }
