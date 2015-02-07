@@ -18,10 +18,8 @@ public class Obstruction : MonoBehaviour {
 	public Transform explosionParticle;
 
 	void Start () {
-
         this.startingPosition = this.areaMapper.gameObject.transform.position;
         this.currentOffsetY = this.startingOffsetY;
-		
         this.UpdatePosition();
 	}
 
