@@ -14,16 +14,15 @@ public class Obstruction : MonoBehaviour {
 	private ObstructionState state = ObstructionState.Falling;
 
 	public float totalLifeTime = 5;
-    public float startingOffsetY = 600.0f;
+   
 	public AreaDescriptor areaMapper;
 	public Transform explosionParticle;
+	public ObstructionFallDown fallDown;
 
 	void Start () {
-        this.startingPosition = this.areaMapper.gameObject.transform.position;
-        this.currentOffsetY = this.startingOffsetY;
-        this.UpdatePosition();
+		this.startingPosition = this.areaMapper.gameObject.transform.position;
 	}
-
+	
 	// Update is called once per frame
 	void Update () {
 		this.currentLifeTime += Time.deltaTime;
@@ -35,55 +34,41 @@ public class Obstruction : MonoBehaviour {
 		if (this.currentLifeTime + 0.2 >= this.totalLifeTime && this.state == ObstructionState.Falling) {
 			this.state = ObstructionState.Exploding;
 		}
-		
-		if(this.currentLifeTime >= this.totalLifeTime && this.state == ObstructionState.Dying) {
+
+		if (this.state == ObstructionState.Dying) {
 			this.state = ObstructionState.Dead;
-		} 
+		}
 	}
 
 	private bool RenderState () {
 		switch (this.state) {
-			case ObstructionState.Falling : {		
-				if (this.currentOffsetY > 10.0f) {
-					this.currentOffsetY -= Time.deltaTime * 100.0f;
-					
-					this.UpdatePosition();
-				} else if (this.currentOffsetY < 10.0f) {
-					this.currentOffsetY = 10.0f;
-					this.UpdatePosition();
-				}
-
+			case ObstructionState.Falling : {	
+				this.fallDown = this.gameObject.GetComponent<ObstructionFallDown>();
+				this.fallDown.startingPosition = this.startingPosition;
 				break;
 			}
 
 			case ObstructionState.Exploding : {
 				this.explosionParticle = Instantiate(this.explosionParticle) as Transform;
 				explosionParticle.position = (transform.Find(this.mineName)).position;
-
-				if (!audio.isPlaying) {
-					this.audio.Play ();
-				}
-
 			    this.state = ObstructionState.Dying;
 
 				break;
 			}
 
 			case ObstructionState.Dying : {
+				this.areaMapper.hasObstruction = false;		
+				if (!this.hidden) {
+					this.hidden = true;
+					(transform.Find(this.mineName) as Transform).GetComponent<MeshRenderer>().enabled = false;
+					(transform.Find(this.sphereName) as Transform).GetComponent<MeshRenderer>().enabled = false;	
+				}
+
 				break;
 			}
 
 			case ObstructionState.Dead : {
-				this.areaMapper.hasObstruction = false;
-				if (!this.hidden) {
-					this.hidden = true;
-					(transform.Find(this.mineName) as Transform).GetComponent<MeshRenderer>().enabled = false;
-					(transform.Find(this.sphereName) as Transform).GetComponent<MeshRenderer>().enabled = false;
-					
-				} else if (!audio.isPlaying) {
-					Destroy(gameObject);
-				}
-
+				Destroy(gameObject);
 				break;
 			}
 
@@ -94,11 +79,4 @@ public class Obstruction : MonoBehaviour {
 
 		return true;
 	}
-
-    void UpdatePosition() {
-        this.gameObject.transform.position = new Vector3(
-            this.startingPosition.x,
-            this.startingPosition.y + currentOffsetY, 
-            this.startingPosition.z);
-    }
 }
