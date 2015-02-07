@@ -12,8 +12,7 @@ public class Obstruction : MonoBehaviour {
    
 	public AreaDescriptor areaMapper;
 	public ExplodeParticle explosionParticle;
-	private ObstructionFallDown fallDown;
-	
+
 	// Update is called once per frame
 	void Update () {
 		this.currentLifeTime += Time.deltaTime;
@@ -23,19 +22,20 @@ public class Obstruction : MonoBehaviour {
 	private void RenderState () {
 		switch (this.state) {
 			case ObstructionState.Falling : {	
-				this.fallDown = this.gameObject.GetComponent<ObstructionFallDown>();
-				this.fallDown.startingPosition = this.areaMapper.gameObject.transform.position;
+				var fallDown = this.gameObject.GetComponent<ObstructionFallDown>();
+				fallDown.startingPosition = this.areaMapper.gameObject.transform.position;
 
 				if (this.currentLifeTime + 0.2 >= this.totalLifeTime) {
 					this.state = ObstructionState.Exploding;
 				}
+
 				break;
 			}
 
 			case ObstructionState.Exploding : {
 				this.explosionParticle = Instantiate(this.explosionParticle) as ExplodeParticle;
 				this.explosionParticle.transform.position = (transform.Find(this.mineName)).position;
-				this.explosionParticle.PlaySound();
+
 			    this.state = ObstructionState.Dying;
 
 				break;
@@ -43,7 +43,6 @@ public class Obstruction : MonoBehaviour {
 
 			case ObstructionState.Dying : {
 				this.areaMapper.hasObstruction = false;		
-
 				foreach (Transform child in transform) {
 					child.GetComponent<MeshRenderer>().enabled = false;
 				}	
