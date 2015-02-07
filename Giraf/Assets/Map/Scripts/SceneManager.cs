@@ -6,23 +6,43 @@ public class SceneManager : MonoBehaviour {
 
 	public Transform obstruction;
 
+	public GameMode gamemode;
+
 	// Update is called once per frame
-	void Update () {
-		KeyListener.AttachKeyPressEvent(this.OnKeyPress);
+	void Start () {
+		if (this.gamemode == GameMode.SinglePlayer) {
+			InvokeRepeating("ThrowBomb", 2.0f, 2.0f);
+		}
+	}
+
+	void Update() {
+		if (this.gamemode == GameMode.Multiplayer) {
+			KeyListener.AttachKeyPressEvent(this.OnKeyPress);
+		}
+	}
+
+	private void ThrowBomb() {		
+		char c = (char)('a' + Random.Range(0, 26));
+		var randomArea = GameObject.Find(c.ToString().ToUpper());
+		this.RenderBomb(randomArea);
 	}
 
 	private void OnKeyPress(char c) {
 		var area = GameObject.Find(c.ToString().ToUpper());
 		if (area != null) {
 
-			var areaMapper = area.GetComponent<AreaDescriptor>();
+			this.RenderBomb(area);
 
-			if (!areaMapper.hasObstruction) {
-				var bomb = Instantiate(obstruction) as Transform;
-				var obstructionScript = bomb.GetComponent<Obstruction>();
-				obstructionScript.areaMapper = areaMapper;
-				areaMapper.hasObstruction = true;
-			}
+		}
+	}
+	
+	private void RenderBomb (GameObject area) {
+		var areaMapper = area.GetComponent<AreaDescriptor> ();
+		if (!areaMapper.hasObstruction) {
+			var bomb = Instantiate (obstruction) as Transform;
+			var obstructionScript = bomb.GetComponent<Obstruction> ();
+			obstructionScript.areaMapper = areaMapper;
+			areaMapper.hasObstruction = true;
 		}
 	}
 }
