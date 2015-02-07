@@ -7,7 +7,6 @@ public class Obstruction : MonoBehaviour {
 	private float currentLifeTime = 0.0f;
     private Vector3 startingPosition;
     private float currentOffsetY;
-	private bool hidden = false;
 	private string mineName = "Mine";
 	private string sphereName = "Sphere001";
 	private ObstructionState state = ObstructionState.Falling;
@@ -51,11 +50,8 @@ public class Obstruction : MonoBehaviour {
 
 			case ObstructionState.Dying : {
 				this.areaMapper.hasObstruction = false;		
-				if (!this.hidden) {
-					this.hidden = true;
-					(transform.Find(this.mineName) as Transform).GetComponent<MeshRenderer>().enabled = false;
-					(transform.Find(this.sphereName) as Transform).GetComponent<MeshRenderer>().enabled = false;	
-				}
+				(transform.Find(this.mineName) as Transform).GetComponent<MeshRenderer>().enabled = false;
+				(transform.Find(this.sphereName) as Transform).GetComponent<MeshRenderer>().enabled = false;	
 
 				this.state = ObstructionState.Dead;
 
