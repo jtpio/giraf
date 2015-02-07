@@ -4,12 +4,10 @@ using System.Linq;
 
 public class KeyListener : MonoBehaviour {
 
-	private AreaManager areaManager;
-
 	public Transform obstruction;
 
-	void Start() {
-		this.areaManager = new AreaManager ();
+	void Start () {
+
 	}
 	
 	// Update is called once per frame
@@ -22,7 +20,14 @@ public class KeyListener : MonoBehaviour {
 	private void OnKeyPress(char c) {
 		var area = GameObject.Find(c.ToString().ToUpper());
 		if (area != null) {
-			this.areaManager.activateBomb(area, obstruction);
+			var areaMapper = area.GetComponent<AreaMapper>();
+			
+			if (!areaMapper.hasObstruction) {
+				var bomb = Instantiate(obstruction) as Transform;
+				var obstructionScript = bomb.GetComponent<Obstruction>();
+				obstructionScript.areaMapper = areaMapper;
+				areaMapper.hasObstruction = true;
+			}
 		}
 	}
 }
