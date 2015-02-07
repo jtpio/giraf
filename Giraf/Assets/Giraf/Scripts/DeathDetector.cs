@@ -7,7 +7,7 @@ public class DeathDetector : MonoBehaviour {
 
 	AudioSource[] sources;
 	AudioSource deathSound;
-
+	
 	void Start () {
 		sources = GetComponents<AudioSource>();
 		deathSound = sources[0];
