@@ -33,10 +33,6 @@ public class Obstruction : MonoBehaviour {
 		if (this.currentLifeTime + 0.2 >= this.totalLifeTime && this.state == ObstructionState.Falling) {
 			this.state = ObstructionState.Exploding;
 		}
-
-		if (this.state == ObstructionState.Dying) {
-			this.state = ObstructionState.Dead;
-		}
 	}
 
 	private bool RenderState () {
@@ -63,6 +59,8 @@ public class Obstruction : MonoBehaviour {
 					(transform.Find(this.mineName) as Transform).GetComponent<MeshRenderer>().enabled = false;
 					(transform.Find(this.sphereName) as Transform).GetComponent<MeshRenderer>().enabled = false;	
 				}
+
+				this.state = ObstructionState.Dead;
 
 				break;
 			}
