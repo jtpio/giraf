@@ -4,10 +4,10 @@ using System.Linq;
 
 public class Obstruction : MonoBehaviour {
 
-	private float currentLifeTime = 0.0f;
+	private float currentLifeTime;
     private float currentOffsetY;
 	private string mineName = "Mine";
-	private ObstructionState state = ObstructionState.Falling;
+	private ObstructionState state;
 
 	public float totalLifeTime = 5;
    
