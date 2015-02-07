@@ -1,0 +1,97 @@
+fileFormatVersion: 2
+guid: 0bb56c7c805863541a91b488c0bcbb59
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Giraf_body
+    100002: Giraf_legLeftBack
+    100004: Giraf_legLeftFront
+    100006: Giraf_legRightBack
+    100008: Giraf_legRightFront
+    100010: Giraf_neck
+    100012: Giraf_tail
+    100014: //RootNode
+    400000: Giraf_body
+    400002: Giraf_legLeftBack
+    400004: Giraf_legLeftFront
+    400006: Giraf_legRightBack
+    400008: Giraf_legRightFront
+    400010: Giraf_neck
+    400012: Giraf_tail
+    400014: //RootNode
+    2300000: Giraf_body
+    2300002: Giraf_legLeftBack
+    2300004: Giraf_legLeftFront
+    2300006: Giraf_legRightBack
+    2300008: Giraf_legRightFront
+    2300010: Giraf_neck
+    2300012: Giraf_tail
+    3300000: Giraf_body
+    3300002: Giraf_legLeftBack
+    3300004: Giraf_legLeftFront
+    3300006: Giraf_legRightBack
+    3300008: Giraf_legRightFront
+    3300010: Giraf_neck
+    3300012: Giraf_tail
+    4300000: Giraf_body
+    4300002: Giraf_neck
+    4300004: Giraf_legRightBack
+    4300006: Giraf_legRightFront
+    4300008: Giraf_tail
+    4300010: Giraf_legLeftFront
+    4300012: Giraf_legLeftBack
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
