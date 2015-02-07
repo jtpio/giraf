@@ -5,6 +5,10 @@ using System.Linq;
 public class KeyListener : MonoBehaviour {
 
 	public Transform obstruction;
+
+	void Start () {
+
+	}
 	
 	// Update is called once per frame
 	void Update () {
