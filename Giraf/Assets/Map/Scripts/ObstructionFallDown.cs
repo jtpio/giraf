@@ -11,6 +11,7 @@ public class ObstructionFallDown : MonoBehaviour {
 	public float animationSpeed = 100.0f;
 
 	void Start () {
+		this.audio.Play();
 		this.currentOffsetY = this.startingOffsetY;
 		this.UpdatePosition();
 	}

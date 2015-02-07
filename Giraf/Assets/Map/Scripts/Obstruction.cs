@@ -35,7 +35,7 @@ public class Obstruction : MonoBehaviour {
 			this.state = ObstructionState.Exploding;
 		}
 
-		if (this.state == ObstructionState.Dying && !this.audio.isPlaying) {
+		if (this.state == ObstructionState.Dying) {
 			this.state = ObstructionState.Dead;
 		}
 	}
@@ -51,11 +51,6 @@ public class Obstruction : MonoBehaviour {
 			case ObstructionState.Exploding : {
 				this.explosionParticle = Instantiate(this.explosionParticle) as Transform;
 				explosionParticle.position = (transform.Find(this.mineName)).position;
-
-				if (!audio.isPlaying) {
-					this.audio.Play ();
-				}
-
 			    this.state = ObstructionState.Dying;
 
 				break;
@@ -68,6 +63,7 @@ public class Obstruction : MonoBehaviour {
 					(transform.Find(this.mineName) as Transform).GetComponent<MeshRenderer>().enabled = false;
 					(transform.Find(this.sphereName) as Transform).GetComponent<MeshRenderer>().enabled = false;	
 				}
+
 				break;
 			}
 
