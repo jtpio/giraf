@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class Obstruction : MonoBehaviour {
 
 	private float currentLifeTime = 0.0f;
     private Vector3 startingPosition;
     private float currentOffsetY;
+	private bool explode = false;
+	private string mineName = "Mine";
+	private string sphereName = "Sphere001";
 
 	public float totalLifeTime = 5;
     public float startingOffsetY = 600.0f;
-
 	public AreaMapper areaMapper;
 
 	void Start () {
@@ -27,7 +30,15 @@ public class Obstruction : MonoBehaviour {
 		
         if(this.currentLifeTime >= this.totalLifeTime) {
 			this.areaMapper.hasObstruction = false;
-			Destroy(gameObject);
+
+			if (!this.explode) {
+				this.explode = true;
+				this.audio.Play ();
+				(transform.Find(this.mineName) as Transform).GetComponent<MeshRenderer>().enabled = false;
+				(transform.Find(this.sphereName) as Transform).GetComponent<MeshRenderer>().enabled = false;
+			} else if (!audio.isPlaying) {
+				Destroy(gameObject);
+			}
 		} else {
 
             if (this.currentOffsetY > 0.0f) {
