@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AreaMapper : MonoBehaviour {
+public class AreaDescriptor : MonoBehaviour {
 
 	public bool hasObstruction = false;
 }

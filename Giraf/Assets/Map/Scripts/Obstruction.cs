@@ -13,7 +13,7 @@ public class Obstruction : MonoBehaviour {
 
 	public float totalLifeTime = 5;
     public float startingOffsetY = 600.0f;
-	public AreaMapper areaMapper;
+	public AreaDescriptor areaMapper;
 	public Transform explosionParticle;
 
 	void Start () {
