@@ -35,10 +35,10 @@ public class Obstruction : MonoBehaviour {
 		if (this.currentLifeTime + 0.2 >= this.totalLifeTime && this.state == ObstructionState.Falling) {
 			this.state = ObstructionState.Exploding;
 		}
-		
-		if(this.currentLifeTime >= this.totalLifeTime && this.state == ObstructionState.Dying) {
+
+		if (this.state == ObstructionState.Dying && !this.audio.isPlaying) {
 			this.state = ObstructionState.Dead;
-		} 
+		}
 	}
 
 	private bool RenderState () {
@@ -70,20 +70,17 @@ public class Obstruction : MonoBehaviour {
 			}
 
 			case ObstructionState.Dying : {
+				this.areaMapper.hasObstruction = false;		
+				if (!this.hidden) {
+					this.hidden = true;
+					(transform.Find(this.mineName) as Transform).GetComponent<MeshRenderer>().enabled = false;
+					(transform.Find(this.sphereName) as Transform).GetComponent<MeshRenderer>().enabled = false;	
+				}
 				break;
 			}
 
 			case ObstructionState.Dead : {
-				this.areaMapper.hasObstruction = false;
-				if (!this.hidden) {
-					this.hidden = true;
-					(transform.Find(this.mineName) as Transform).GetComponent<MeshRenderer>().enabled = false;
-					(transform.Find(this.sphereName) as Transform).GetComponent<MeshRenderer>().enabled = false;
-					
-				} else if (!audio.isPlaying) {
-					Destroy(gameObject);
-				}
-
+				Destroy(gameObject);
 				break;
 			}
 
