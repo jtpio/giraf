@@ -17,9 +17,9 @@ public class CollisionDetector : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (GameState.state == State.RUN ||
-			other.gameObject.layer == LayerMask.NameToLayer("Mine") ||
-		    other.gameObject.layer == LayerMask.NameToLayer("GroundMine")) {
+		if (GameState.state == State.RUN &&
+			(other.gameObject.layer == LayerMask.NameToLayer("Mine") ||
+		    other.gameObject.layer == LayerMask.NameToLayer("GroundMine"))) {
 			headDeathDetector.notifyDeath(toDestroy);
 		}
 	}

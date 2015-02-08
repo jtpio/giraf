@@ -16,6 +16,7 @@ public class Explode : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.layer == LayerMask.NameToLayer("Giraf") ||
+		    gameObject.layer == LayerMask.NameToLayer("Mine") ||
 		    other.gameObject.layer == LayerMask.NameToLayer("GroundMine")) {
 			iTween.ScaleTo(gameObject, iTween.Hash("scale", transform.localScale * explosionScale, "easeType", "easeInQuad", "time", explosionSpeed, "oncomplete", "autoDestroy"));
 		}

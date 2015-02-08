@@ -24,6 +24,10 @@ public class MoveForward : MonoBehaviour {
 
 		if (GameState.state != State.RUN) return;
 
+		if (Input.GetButtonDown("Fire2")) {
+			forwardSpeed += 10.0f;
+		}
+
 		float rawLeftAxis = Input.GetAxis("LeftStickX");
 		float rawRightAxisX = Input.GetAxis("RightStickX");
 		//float rawRightAxisY = Input.GetAxis("RightStickY");
