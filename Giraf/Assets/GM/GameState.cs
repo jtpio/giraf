@@ -12,7 +12,6 @@ public class GameState : MonoBehaviour {
 	
 	void Update () {
 		if (Input.GetButtonDown("Fire1")) {
-			Debug.Log ("Restart");
 			state = State.STOP;
 			AutoFade.LoadLevel("GirafControl", restartTimeTransition / 2, restartTimeTransition / 2, Color.black);
 		}
