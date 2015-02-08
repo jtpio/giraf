@@ -13,9 +13,7 @@ public class MoveForward : MonoBehaviour {
 	Transform neck;
 
 	void Start () {
-		neck = GameObject.Find("Giraf_neck").transform;
-		minTiltAngle = neck.eulerAngles.x - tiltAngleRange / 2;
-		maxTiltAngle = neck.eulerAngles.x + tiltAngleRange / 2;
+		neck = transform.Find("Giraf/Giraf_body/Giraf_neck");
 		controller = GetComponent<CharacterController>();
 		StartCoroutine("PreAnimation");
 	}
@@ -25,6 +23,8 @@ public class MoveForward : MonoBehaviour {
 		iTween.RotateBy(gameObject, iTween.Hash("amount", new Vector3(0.0f, 0.5f, 0.0f), "easeType", "easeOutQuint", "time", 0.5f));
 		yield return new WaitForSeconds(0.5f);
 		GameState.Run ();
+		minTiltAngle = neck.eulerAngles.x - tiltAngleRange / 2;
+		maxTiltAngle = neck.eulerAngles.x + tiltAngleRange / 2;
 	}
 	
 	void Update () {
@@ -51,7 +51,7 @@ public class MoveForward : MonoBehaviour {
 		controller.Move(transform.forward * Time.deltaTime * forwardSpeed);
 
 		if (neck == null) return;
-
+		
 		Vector3 currentEuler = neck.eulerAngles;
 		if (neck.eulerAngles.x >= minTiltAngle && neck.eulerAngles.x <= maxTiltAngle) {
 			neck.Rotate(tiltX, 0.0f, 0.0f);
