@@ -14,6 +14,8 @@ public class GameState : MonoBehaviour {
 		if (Input.GetButtonDown("Fire1")) {
 			state = State.STOP;
 			AutoFade.LoadLevel("Game", restartTimeTransition / 2, restartTimeTransition / 2, Color.black);
+		} else if (Input.GetButtonDown("Fire2")) {
+			AutoFade.LoadLevel("Intro", restartTimeTransition / 2, restartTimeTransition / 2, Color.black);
 		}
 	}
 
