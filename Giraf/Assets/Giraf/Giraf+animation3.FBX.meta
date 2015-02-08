@@ -1,0 +1,372 @@
+fileFormatVersion: 2
+guid: 12230e5db9e2a45fc9895c50da98b48e
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Bone001
+    100002: Bone005
+    100004: Bone006
+    100006: Bone007
+    100008: Bone008
+    100010: Bone014
+    100012: Bone015
+    100014: Bone016
+    100016: Bone017
+    100018: Bone021
+    100020: Bone023
+    100022: Bone_BodyBack
+    100024: Bone_bodyFront
+    100026: Bone_legLeftFront
+    100028: Bone_legLefttBack
+    100030: Bone_legRightBack
+    100032: Bone_legRightFront
+    100034: Bone_neck
+    100036: Bone_tail
+    100038: //RootNode
+    100040: Giraf_body
+    100042: Giraf_legLeftBack
+    100044: Giraf_legLeftFront
+    100046: Giraf_legRightBack
+    100048: Giraf_legRightFront
+    100050: Giraf_neck
+    100052: Giraf_tail
+    400000: Bone001
+    400002: Bone005
+    400004: Bone006
+    400006: Bone007
+    400008: Bone008
+    400010: Bone014
+    400012: Bone015
+    400014: Bone016
+    400016: Bone017
+    400018: Bone021
+    400020: Bone023
+    400022: Bone_BodyBack
+    400024: Bone_bodyFront
+    400026: Bone_legLeftFront
+    400028: Bone_legLefttBack
+    400030: Bone_legRightBack
+    400032: Bone_legRightFront
+    400034: Bone_neck
+    400036: Bone_tail
+    400038: //RootNode
+    400040: Giraf_body
+    400042: Giraf_legLeftBack
+    400044: Giraf_legLeftFront
+    400046: Giraf_legRightBack
+    400048: Giraf_legRightFront
+    400050: Giraf_neck
+    400052: Giraf_tail
+    4300000: Giraf_body
+    4300002: Giraf_neck
+    4300004: Giraf_legRightBack
+    4300006: Giraf_legRightFront
+    4300008: Giraf_tail
+    4300010: Giraf_legLeftFront
+    4300012: Giraf_legLeftBack
+    7400000: Wave
+    7400002: Dance2
+    7400004: Wave+Dance
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Giraf_body
+    13700002: Giraf_legLeftBack
+    13700004: Giraf_legLeftFront
+    13700006: Giraf_legRightBack
+    13700008: Giraf_legRightFront
+    13700010: Giraf_neck
+    13700012: Giraf_tail
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Wave
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 54
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone001
+        weight: 1
+      - path: Bone001/Bone_BodyBack
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone005
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone005/Bone006
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone005/Bone006/Bone_legLefttBack
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone007
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone007/Bone008
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone007/Bone008/Bone_legRightBack
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone023
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone023/Bone_tail
+        weight: 1
+      - path: Bone001/Bone_bodyFront
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone014
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone014/Bone015
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone014/Bone015/Bone_legLeftFront
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone016
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone016/Bone017
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone016/Bone017/Bone_legRightFront
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone021
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone021/Bone_neck
+        weight: 1
+      - path: Giraf_body
+        weight: 1
+      - path: Giraf_legLeftBack
+        weight: 1
+      - path: Giraf_legLeftFront
+        weight: 1
+      - path: Giraf_legRightBack
+        weight: 1
+      - path: Giraf_legRightFront
+        weight: 1
+      - path: Giraf_neck
+        weight: 1
+      - path: Giraf_tail
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Dance2
+      takeName: Take 001
+      firstFrame: 56
+      lastFrame: 117
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone001
+        weight: 1
+      - path: Bone001/Bone_BodyBack
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone005
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone005/Bone006
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone005/Bone006/Bone_legLefttBack
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone007
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone007/Bone008
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone007/Bone008/Bone_legRightBack
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone023
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone023/Bone_tail
+        weight: 1
+      - path: Bone001/Bone_bodyFront
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone014
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone014/Bone015
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone014/Bone015/Bone_legLeftFront
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone016
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone016/Bone017
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone016/Bone017/Bone_legRightFront
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone021
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone021/Bone_neck
+        weight: 1
+      - path: Giraf_body
+        weight: 1
+      - path: Giraf_legLeftBack
+        weight: 1
+      - path: Giraf_legLeftFront
+        weight: 1
+      - path: Giraf_legRightBack
+        weight: 1
+      - path: Giraf_legRightFront
+        weight: 1
+      - path: Giraf_neck
+        weight: 1
+      - path: Giraf_tail
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Wave+Dance
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 117
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone001
+        weight: 1
+      - path: Bone001/Bone_BodyBack
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone005
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone005/Bone006
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone005/Bone006/Bone_legLefttBack
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone007
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone007/Bone008
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone007/Bone008/Bone_legRightBack
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone023
+        weight: 1
+      - path: Bone001/Bone_BodyBack/Bone023/Bone_tail
+        weight: 1
+      - path: Bone001/Bone_bodyFront
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone014
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone014/Bone015
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone014/Bone015/Bone_legLeftFront
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone016
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone016/Bone017
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone016/Bone017/Bone_legRightFront
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone021
+        weight: 1
+      - path: Bone001/Bone_bodyFront/Bone021/Bone_neck
+        weight: 1
+      - path: Giraf_body
+        weight: 1
+      - path: Giraf_legLeftBack
+        weight: 1
+      - path: Giraf_legLeftFront
+        weight: 1
+      - path: Giraf_legRightBack
+        weight: 1
+      - path: Giraf_legRightFront
+        weight: 1
+      - path: Giraf_neck
+        weight: 1
+      - path: Giraf_tail
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
