@@ -3,24 +3,22 @@ using System.Collections;
 
 public class SpotlightMove : MonoBehaviour {
 	
-	public float speed;
-	public float distance;
-	public float movementInDirectionTime = 3.0f;
+	public float distance = 10.0f;
 
 	
 	public Vector3 startingPosition;
-	private float limit = 10.0f;
+	private float limit;
 
 	// Use this for initialization
 	void Start () {
 		this.startingPosition = this.gameObject.transform.position;	
+		this.limit = this.distance;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
 		if (this.gameObject.transform.position.z < this.limit) {
-			this.limit = 5;
+			this.limit = this.distance;
 			Vector3 positionA = new Vector3(this.gameObject.transform.position.x,
 			                                this.gameObject.transform.position.y,
 			                                this.gameObject.transform.position.z + 50);
@@ -29,7 +27,7 @@ public class SpotlightMove : MonoBehaviour {
 		}
 
 		else {
-			this.limit = -5;
+			this.limit = -this.distance;
 			Vector3 positionB = new Vector3(this.gameObject.transform.position.x,
 			                                this.gameObject.transform.position.y,
 			                                this.gameObject.transform.position.z - 50);
