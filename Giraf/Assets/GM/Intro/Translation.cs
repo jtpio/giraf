@@ -22,7 +22,7 @@ public class Translation : MonoBehaviour {
 		Camera.main.orthographicSize = 5;
 
 		iTween.MoveTo (gameObject, iTween.Hash("position", new Vector3(instructions.position.x, transform.position.y, instructions.position.z), "time", 0.5f));
-		yield return new WaitForSeconds(storyTime + pauseTime);
+		yield return new WaitForSeconds(pauseTime);
 
 		iTween.MoveTo (gameObject, iTween.Hash("position", endEnd, "time", 0.5f));
 		NextScreen();
