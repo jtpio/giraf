@@ -38,7 +38,7 @@ public class SceneManager : MonoBehaviour {
 	
 	private void RenderBomb (GameObject area) {
 		var areaMapper = area.GetComponent<AreaDescriptor> ();
-		if (!areaMapper.hasObstruction) {
+		if (!areaMapper.hasObstruction && GameObject.FindGameObjectsWithTag("FlyingMine").Length < 5) {
 			var bomb = Instantiate (obstruction) as Transform;
 			var obstructionScript = bomb.GetComponent<Obstruction> ();
 			obstructionScript.areaMapper = areaMapper;
