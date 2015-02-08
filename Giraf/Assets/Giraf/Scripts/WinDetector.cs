@@ -14,6 +14,6 @@ public class WinDetector : MonoBehaviour {
 
 	public void notifyWin () {
 		GameState.GameWin();
-		winText.SetActive(true);
+		AutoFade.LoadLevel("Finish", 0.5f, 0.5f, Color.white);
 	}
 }

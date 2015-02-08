@@ -7,7 +7,7 @@ public class GameState : MonoBehaviour {
 	public float restartTimeTransition;
 
 	void Start () {
-		state = State.RUN;
+		state = State.PAUSE;
 	}
 	
 	void Update () {
@@ -15,8 +15,10 @@ public class GameState : MonoBehaviour {
 			state = State.STOP;
 			AutoFade.LoadLevel("Game", restartTimeTransition / 2, restartTimeTransition / 2, Color.black);
 		}
+	}
 
-
+	public static void Run() {
+		state = State.RUN;
 	}
 
 	public static void Death() {
