@@ -17,8 +17,8 @@ public class CollisionDetector : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		Debug.Log ("COLLISION GROUND MINE");
-		if (other.gameObject.layer == LayerMask.NameToLayer("Mine") ||
+		if (GameState.state == State.RUN ||
+			other.gameObject.layer == LayerMask.NameToLayer("Mine") ||
 		    other.gameObject.layer == LayerMask.NameToLayer("GroundMine")) {
 			headDeathDetector.notifyDeath(toDestroy);
 		}

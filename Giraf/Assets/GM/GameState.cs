@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class GameState : MonoBehaviour {
-
+	
 	public static State state;
 	public float restartTimeTransition;
 
@@ -15,6 +15,12 @@ public class GameState : MonoBehaviour {
 			state = State.STOP;
 			AutoFade.LoadLevel("Game", restartTimeTransition / 2, restartTimeTransition / 2, Color.black);
 		}
+
+
+	}
+
+	public static void Death() {
+		state = State.DEATH;
 	}
 
 	public static void GameOver() {
@@ -24,4 +30,5 @@ public class GameState : MonoBehaviour {
 	public static void GameWin() {
 		state = State.WIN;
 	}
+
 }

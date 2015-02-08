@@ -1,3 +1,3 @@
 ﻿public enum State {
-	PAUSE, STOP, RUN, LOST, WIN
+	PAUSE, STOP, RUN, DEATH, LOST, WIN
 };
