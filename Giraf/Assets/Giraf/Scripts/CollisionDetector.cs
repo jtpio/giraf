@@ -28,6 +28,8 @@ public class CollisionDetector : MonoBehaviour {
 		Debug.Log("BOOM " + gameObject.name + " and " + other.name);
 		Debug.Log(other);
 
-		headDeathDetector.notifyDeath(gameObject);
+		if (other.gameObject.layer == LayerMask.NameToLayer("Mine")) {
+			headDeathDetector.notifyDeath(gameObject);
+		}
 	}
 }

@@ -18,6 +18,9 @@ public class MoveForward : MonoBehaviour {
 	}
 	
 	void Update () {
+
+		if (GameState.state == State.LOST) return;
+
 		float rawLeftAxis = Input.GetAxis("LeftStickX");
 		float rawRightAxisX = Input.GetAxis("RightStickX");
 		float rawRightAxisY = Input.GetAxis("RightStickY");

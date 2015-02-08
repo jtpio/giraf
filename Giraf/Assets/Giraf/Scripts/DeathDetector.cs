@@ -3,6 +3,8 @@ using System.Collections;
 
 public class DeathDetector : MonoBehaviour {
 
+	public GameObject deathText;
+
 	AudioSource[] sources;
 	AudioSource deathSound;
 
@@ -17,6 +19,9 @@ public class DeathDetector : MonoBehaviour {
 
 	public void notifyDeath(GameObject bodyPart) {
 		deathSound.Play();
+		GameState.GameOver();
+		deathText.SetActive(true);
+		
 		Destroy(bodyPart);
 	}
 }

@@ -3,13 +3,17 @@ using System.Collections;
 
 public class GameState : MonoBehaviour {
 
-	// Use this for initialization
+	public static State state;
+
 	void Start () {
-	
+		state = State.PAUSE;
 	}
 	
-	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public static void GameOver() {
+		state = State.LOST;
 	}
 }
