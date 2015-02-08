@@ -9,14 +9,21 @@ public class SpotlightMove : MonoBehaviour {
 	public Vector3 startingPosition;
 	private float limit;
 
+	private bool wait = true;
+
 	// Use this for initialization
 	void Start () {
 		this.startingPosition = this.gameObject.transform.position;	
 		this.limit = this.distance;
+		InvokeRepeating("PauseSpotlight", 2.0f, 4.0f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (wait) {
+			return;
+		}
+
 		if (this.gameObject.transform.position.z < this.limit) {
 			this.limit = this.distance;
 			Vector3 positionA = new Vector3(this.gameObject.transform.position.x,
@@ -35,4 +42,11 @@ public class SpotlightMove : MonoBehaviour {
 			transform.position = Vector3.Lerp(transform.position, positionB, 0.3f * Time.deltaTime);
 		}
 	}
+
+	
+	
+	private void PauseSpotlight()
+	{
+		this.wait = !this.wait;
+	} 
 }
