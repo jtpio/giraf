@@ -23,7 +23,10 @@ public class Obstruction : MonoBehaviour {
 		switch (this.state) {
 			case ObstructionState.Falling : {	
 				var fallDown = this.gameObject.GetComponent<ObstructionFallDown>();
-				fallDown.startingPosition = this.areaMapper.gameObject.transform.position;
+
+				if (this.areaMapper != null) {
+					fallDown.startingPosition = this.areaMapper.gameObject.transform.position;
+				}
 
 				if (this.currentLifeTime + 0.2 >= this.totalLifeTime) {
 					this.state = ObstructionState.Exploding;
@@ -42,7 +45,7 @@ public class Obstruction : MonoBehaviour {
 			}
 
 			case ObstructionState.Dying : {
-				this.areaMapper.hasObstruction = false;		
+				if (this.areaMapper != null) this.areaMapper.hasObstruction = false;		
 				foreach (Transform child in transform) {
 					child.GetComponent<MeshRenderer>().enabled = false;
 				}	
